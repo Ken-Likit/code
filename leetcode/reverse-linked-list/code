@@ -1,0 +1,10 @@
+if head == None or head.next == None:
+            return head
+
+        n = head.next
+        h = self.reverseList(n)
+
+        head.next = None
+        n.next = head
+
+        return h
