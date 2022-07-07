@@ -1,4 +1,5 @@
 class Testdata {
+   //website : https://www.freecodecamp.org/news/the-javascript-array-handbook/
     static Students = [
     {
        'id': 001,
@@ -44,78 +45,105 @@ class Testdata {
 };
 
 function test() {
-    const emotions = ['🙂', '😍', '🙄', '😟'];
-    const colors = ['red', 'blue', 'green'];
-    const names = ['tom', 'alex', 'bob', 'john'];
-    const salad = ['🍅', '🍄', '🥦', '🥒', '🌽', '🥕', '🥑'];
-    
+   const emotions = ['🙂', '😍', '🙄', '😟'];
+   const colors = ['red', 'blue', 'green'];
+   const names = ['tom', 'alex', 'bob', 'john'];
+   const salad = ['🍅', '🍄', '🥦', '🥒', '🌽', '🥕', '🥑'];
 
 
-    console.group('Joining');
-    let a = emotions.join('+');
-    console.log(`A = ${a}`);
-    a = emotions.join();
-    console.log(a);
-    console.groupEnd();
 
-    console.group('Fill');
-    console.log(colors);
-    colors.fill('white', 0, 2);
-    //colors.fill('white'); fills everything
-    console.log(colors);
-    console.groupEnd();
+   console.group('Joining');
+   let a = emotions.join('+');
+   console.log(`A = ${a}`);
+   a = emotions.join();
+   console.log(a);
+   console.groupEnd();
 
-    console.group('Includes');
-    console.log(names);
-    const hasjohn = names.includes('John'.toLowerCase());
-    console.log(hasjohn);
-    const newnames = names.map(x => x.toUpperCase());
-    console.log(newnames);
-    const hasnew = newnames.includes('john'.toUpperCase());
-    console.log(hasnew);
-    const newnames1 = names.map(x => x.toLowerCase()).includes('john');
-    console.log(newnames1);
-    console.groupEnd();
+   console.group('Fill');
+   console.log(colors);
+   colors.fill('white', 0, 2);
+   //colors.fill('white'); fills everything
+   console.log(colors);
+   console.groupEnd();
 
-    console.group('Index of');
-    const idxofjohn = names.indexOf('john');
-    console.log(idxofjohn);
-    console.groupEnd();
+   console.group('Includes');
+   console.log(names);
+   const hasjohn = names.includes('John'.toLowerCase());
+   console.log(hasjohn);
+   const newnames = names.map(x => x.toUpperCase());
+   console.log(newnames);
+   const hasnew = newnames.includes('john'.toUpperCase());
+   console.log(hasnew);
+   const newnames1 = names.map(x => x.toLowerCase()).includes('john');
+   console.log(newnames1);
+   console.groupEnd();
 
-    console.group('Reverse');
-    console.log(salad);
-    salad.reverse();
-    console.log(salad);
-    console.groupEnd();
+   console.group('Index of');
+   const idxofjohn = names.indexOf('john');
+   console.log(idxofjohn);
+   console.groupEnd();
 
-    console.group('Sort');
-    console.log(names);
-    names.sort();
-    console.log(names);
-    console.groupEnd();
+   console.group('Reverse');
+   console.log(salad);
+   salad.reverse();
+   console.log(salad);
+   console.groupEnd();
 
-    console.group('Splice');
-    console.log(names);
-    //const clonednames = names.splice(0);
-    //console.log(clonednames);
-    const clonednames2 = names.splice(0, 2);
-    console.log(clonednames2);
-    console.log(names);
-    console.groupEnd();
+   console.group('Sort');
+   console.log(names);
+   names.sort();
+   console.log(names);
+   console.groupEnd();
 
-    console.group('Array of');
-    const arrayOf = Array.of(2, false, 'test', {'name': 'Alex'});
-    console.log(arrayOf);
-    console.groupEnd();
+   console.group('Splice');
+   console.log(names);
+   //const clonednames = names.splice(0);
+   //console.log(clonednames);
+   const clonednames2 = names.splice(0, 2);
+   console.log(clonednames2);
+   console.log(names);
+   console.groupEnd();
 
-    console.group('Filter');
-    //console.log(Testdata.Students);
-    const femaleStudents =  Testdata.Students.filter((element, index) => element.gender === 'F');
+   console.group('Array of');
+   const arrayOf = Array.of(2, false, 'test', {'name': 'Alex'});
+   console.log(arrayOf);
+   console.groupEnd();
 
-    function filterFunction(element)  { return element.gender === 'F'; };
-    const femaleStudents2 = Testdata.Students.filter(x => filterFunction(x));
-    console.log(femaleStudents2);
-    console.groupEnd();
+   console.group('Filter');
+   //console.log(Testdata.Students);
+   const femaleStudents =  Testdata.Students.filter((element, index) => element.gender === 'F');
+   //predicate function
+   function filterFunction(element)  { return element.gender === 'F'; };
+   const femaleStudents2 = Testdata.Students.filter(x => filterFunction(x));
+   console.log(femaleStudents2);
+   console.groupEnd();
+
+   console.group('reduce');
+   const total = Testdata.Students.reduce((acc, element, index, arr)  => {
+      acc = acc + element.paid;
+      return acc;
+   }, 0);
+   console.log(`total = ${total}`)
+   console.groupEnd();
+
+   console.group('some');
+   const less40 = Testdata.Students.some(element => element.age < 40);
+   console.log(less40);
+   console.groupEnd();
+
+   console.group('find');
+   const less41 = Testdata.Students.find(element => element.age < 41);
+   console.log(less41);
+   console.groupEnd();
+
+   console.group('every');
+   const hasid = Testdata.Students.every(element => element.id !== undefined);
+   console.log(hasid);
+   console.groupEnd();
+
+   console.group('at');
+   console.log(salad.at(2));
+   console.groupEnd();
 }
 
 test();
