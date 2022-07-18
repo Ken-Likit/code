@@ -59,6 +59,7 @@ function test() {
     numarr4.splice(0, numarr4.length);
     console.timeEnd('Approach 5: splice')
     console.groupEnd();
+
 }
 
 test();
