@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 //abstract base class
 //no implementation
@@ -27,6 +28,10 @@ class Shape {
             perimeter = 0;            
         }
 
+        ~Shape() {
+            //cout << "Shape destructor" << endl;
+        }
+
         double GetLength() {
             return length;
         } 
@@ -38,5 +43,8 @@ class Shape {
         }
         virtual double GetArea() = 0;//pure virtual function means = to 0
         virtual double GetPerimeter() = 0;
+        virtual string toString() {
+            return "Shape has Height = " + to_string(height) + " Length = " + to_string(length) +"\n";
+        }
     //virtual + ... + = 0 means abstract
 };
