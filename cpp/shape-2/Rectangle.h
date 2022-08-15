@@ -1,3 +1,6 @@
+#ifndef RECTANGLE_H
+#define RECTANGLE_H 
+
 #include <iostream>
 #include <string>
 #include "Shape.h"
@@ -20,7 +23,11 @@ class Rectangle : public Shape {
         }
 
         string toString() {
-            return "Rectangle has Height = " + to_string(height) + " Length = " + to_string(length) +"\n";
+            return "Rectangle has Height = " + to_string(height) + 
+            " Length = " + to_string(length) +
+            " Area = " + to_string(GetArea()) +
+            " Perimeter = " + to_string(GetPerimeter()) +
+            "\n";
         }
 };
-
+#endif

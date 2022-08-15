@@ -1,3 +1,6 @@
+#ifndef SHAPE_H
+#define SHAPE_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -35,16 +38,22 @@ class Shape {
         double GetLength() {
             return length;
         } 
+
         double GetHeight() {
             return height;
         }
+
         double GetRadius() {
             return radius;
         }
+        //Must impliment in derived classes
         virtual double GetArea() = 0;//pure virtual function means = to 0
         virtual double GetPerimeter() = 0;
+        //default tostring but can be overridden with new function
         virtual string toString() {
             return "Shape has Height = " + to_string(height) + " Length = " + to_string(length) +"\n";
         }
     //virtual + ... + = 0 means abstract
 };
+
+#endif

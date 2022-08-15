@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 using namespace std;
 
 const int MAX_SHAPES = 4;
@@ -20,29 +21,29 @@ void createShapes() {
         cout << ptr[i]->toString();
     }
 
-    delete[] ptr;
+    for (int i = 0; i < MAX_SHAPES; i++) {
+        delete ptr[i];
+    }
+
 }
 
 int main() {
     Shape* a = new Rectangle(2, 4);
     int i = 0;
     //cout << a->GetArea() << endl;  same as below, use * to get value/object at pointer
-    cout << (*a).GetArea() << endl;
-    cout << a->GetPerimeter() << endl;
+    cout << a->toString() << endl;
     delete a;
 
     Rectangle b;
-    cout << b.GetArea() << endl;
-    cout << b.GetPerimeter() << endl;
-
-    Square d;
-
+    cout << b.toString() << endl;
     
     // observe data type of c, shape, 
     Shape* c = new Square(3);
-    cout << c->GetArea() << endl;
-    cout << c->GetPerimeter() << endl; 
+    cout << c->toString() << endl;
     delete c;
+
+    Shape* d = new Circle(5);
+    cout << d->toString();
 
     createShapes();
 
