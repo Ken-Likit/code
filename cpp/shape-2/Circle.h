@@ -13,9 +13,12 @@ using namespace std;
 class Circle : public Shape {
     
     public:
-        Circle() : Shape() {}
+        Circle() : Shape() {
+            shapeType = ST_Circle;
+        }
         Circle(double r) : Shape() {
             radius = r;
+            shapeType = ST_Circle;
         }
         ~Circle() {}
 
@@ -41,6 +44,7 @@ class Circle : public Shape {
             return "Circle has Radius = " + rStream.str() + 
             " Area = " + aStream.str() +
             " Perimeter = " + pStream.str() +
+            " ShapeType = " + ShapeTypeToString(shapeType) +
             "\n";    
         }  
 

@@ -9,8 +9,12 @@ using namespace std;
 class Rectangle : public Shape {
 
     public:
-        Rectangle() : Shape() {};
-        Rectangle(double l, double h) : Shape(l, h) {};
+        Rectangle() : Shape() {
+            shapeType = ST_Rectangle;
+        };
+        Rectangle(double l, double h) : Shape(l, h) {
+            shapeType = ST_Rectangle;
+        };
         ~Rectangle() {
             //cout << "Rectangle destructor" << endl;
         }
@@ -20,6 +24,12 @@ class Rectangle : public Shape {
         }
         double GetPerimeter() {
             return ((2 * height) + (2 * length)); 
+        }
+        void SetHeight(double h) {
+            height = h;
+        }
+        void SetLength(double l) {
+            length = l;
         }
 
         string toString() {

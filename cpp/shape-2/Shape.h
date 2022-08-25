@@ -6,6 +6,24 @@
 using namespace std;
 //abstract base class
 //no implementation
+enum ShapeType {
+    ST_Unknown = 0,
+    ST_Rectangle = 1, 
+    ST_Square = 2, 
+    ST_Circle = 3
+};
+constexpr const char* ShapeTypeToString(ShapeType e) throw()
+{
+    switch (e)
+    {
+        case ShapeType::ST_Unknown: return "ST_Unknown";
+        case ShapeType::ST_Rectangle: return "ST_Rectangle";
+        case ShapeType::ST_Square: return "ST_Square";
+        case ShapeType::ST_Circle: return "ST_Circle";
+        default: throw std::invalid_argument("Unimplemented item");
+    }
+}
+
 class Shape {
 
     protected:
@@ -14,6 +32,7 @@ class Shape {
         double radius;
         double area;
         double perimeter;
+        ShapeType shapeType = ST_Unknown;
 
     public:
         Shape() {
@@ -53,7 +72,10 @@ class Shape {
         virtual string toString() {
             return "Shape has Height = " + to_string(height) + " Length = " + to_string(length) +"\n";
         }
-    //virtual + ... + = 0 means abstract
+        //virtual + ... + = 0 means abstract
+        static void BuildShapes() {
+            cout << "BuildShapes" << endl;
+        } 
 };
 
 #endif

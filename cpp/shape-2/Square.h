@@ -9,8 +9,12 @@ using namespace std;
 class Square : public Rectangle {
 
     public:
-        Square() : Rectangle() {};
-        Square(double l) : Rectangle(l, l) {};
+        Square() : Rectangle() {
+            shapeType = ST_Square;
+        };
+        Square(double l) : Rectangle(l, l) {
+            shapeType = ST_Square;
+        };
         ~Square() {
             //cout << "Square destructor" << endl;
         }
@@ -29,6 +33,7 @@ class Square : public Rectangle {
             to_string(height) +
             " Area = " + to_string(GetArea()) +
             " Perimeter = " + to_string(GetPerimeter()) +
+            //" Shapetype = " + shapeType +
             "\n";
         }
 };
