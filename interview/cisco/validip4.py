@@ -1,3 +1,10 @@
+	"""
+	Check for valid and invalid ip addresss
+	have to be for numbers seperated with . and 
+	the number have to be between 0 and 255
+ 
+	"""
+
 def checkIPValidity(addressIP):
 	# Write your code here
 	split_ip = addressIP.split(".")
